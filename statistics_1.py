@@ -52,5 +52,38 @@ sales_data.to_csv('salesdata.csv', index=False)
 #Path location
 os.getcwd()
 
+#----------------------------------------------------------------------------------------
+#Step:3 Descriptive Statistics
+
+#Descriptive statistics
+descriptive_stats = sales_data['units_sold'].describe()
+
+#Display descriptive statistics
+print("\nDescriptive Statistics for Units Sold:")
+print(descriptive_stats)
+
+#Additional statistics
+mean_sales = sales_data['units_sold']. mean()
+median_sales = sales_data['units_sold'].median()
+mode_sales = sales_data['units_sold'].mode()[0]
+variance_sales = sales_data ['units_sold'].var()
+std_deviation_sales = sales_data ['units_sold'].std()
+
+#Group by category and calculate total and average sales
+category_stats = sales_data.groupby('category')['units_sold'].agg(['sum','mean','std']).reset_index()
+category_stats.columns = ['Category','Total Units Sold','Average Units Sold','Std Dev of Units Sold']
+
+#Display the results
+print("\nStatistical Analysis:")
+print(f"Mean Units Sold: {mean_sales}")
+print(f"Median Units Sold: {median_sales}")
+print(f"Mode Units Sold: {mode_sales}")
+print(f"Variance of Units Sold: {variance_sales}")
+print(f"Standard Deviation of Units Sold: {std_deviation_sales}")
+print ("\nCategory Statistics:")
+print(category_stats)
+
+
+
 
 
