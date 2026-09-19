@@ -83,7 +83,22 @@ print(f"Standard Deviation of Units Sold: {std_deviation_sales}")
 print ("\nCategory Statistics:")
 print(category_stats)
 
+#----------------------------------------------------------------------------------------
+#Step:4 Inferential Statistics
 
+# Confidence Interval for the mean of units sold
+confidence_level = 0.95
+degrees_freedom = len(sales_data['units_sold']) - 1
+sample_mean = mean_sales
+sample_standard_error = std_deviation_sales / np.sqrt(len(sales_data['units_sold']))
+
+# t-score for the confidence level
+t_score = stats.t.ppf((1 + confidence_level) / 2, degrees_freedom)
+margin_of_error = t_score * sample_standard_error
+
+confidence_interval = (sample_mean - margin_of_error, sample_mean + margin_of_error)
+print("\nConfidence Interval for the Mean of Units Sold:")
+print(confidence_interval)
 
 
 
