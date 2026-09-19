@@ -100,5 +100,20 @@ confidence_interval = (sample_mean - margin_of_error, sample_mean + margin_of_er
 print("\nConfidence Interval for the Mean of Units Sold:")
 print(confidence_interval)
 
+#----------------------------------------------------------------------------------------
+#Step:5 Hypothesis Testing
 
+# Hypothesis Testing (t-test)
+# Null hypothesis: Mean units sold is equal to 20
+# Alternative hypothesis: Mean units sold is not equal to 20
+
+t_statistic, p_value = stats.ttest_1samp(sales_data['units_sold'], 20)
+
+print("\nHypothesis Testing (t-test):")
+print(f"T-statistic: {t_statistic}, P-value: {p_value}")
+
+if p_value < 0.05:
+    print("Reject the null hypothesis: The mean units sold is significantly different from 20.")
+else:
+    print("Fail to reject the null hypothesis: The mean units sold is not significantly different from 20.")
 
