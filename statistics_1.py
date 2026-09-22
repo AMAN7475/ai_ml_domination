@@ -117,3 +117,35 @@ if p_value < 0.05:
 else:
     print("Fail to reject the null hypothesis: The mean units sold is not significantly different from 20.")
 
+#----------------------------------------------------------------------------------------
+#Step:6 Visualizations
+
+sns.set(style= "whitegrid")
+
+# Plot distribution of units sold
+plt.figure(figsize=(10, 6))
+sns.histplot(sales_data['units_sold'], bins=10, kde=True)
+plt.title('Distribution of Units Sold') 
+plt.xlabel('Units Sold')
+plt.ylabel('Frequency')
+plt.axvline(mean_sales, color='red', linestyle='--',label='Mean')
+plt.axvline(median_sales, color='blue', linestyle='--',label='Median')
+plt.axvline(mode_sales, color='green', linestyle='--',label='Mode')
+plt.legend()
+plt.show()
+
+# Boxplot for units sold by category
+plt.figure(figsize=(10, 6))
+sns.boxplot(x='category', y='units_sold', data=sales_data)
+plt.title('Boxplot of Units Sold by Category') 
+plt.xlabel('Category')
+plt.ylabel('Units Sold')
+plt.show()
+
+# Bar plot for total units sold by category
+plt.figure(figsize=(10, 6))
+sns. barplot (x='Category', y='Total Units Sold', data=category_stats)
+plt.title('Total Units Sold by Category')
+plt.xlabel('Category')
+plt.ylabel('Total Units Sold')
+plt.show()
