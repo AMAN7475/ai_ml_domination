@@ -27,3 +27,8 @@ x[:,0] = labelencoder_x. fit_transform(x[:,0])
 # Encoding the target variable (Purchased) into numerical values
 labelencoder_y = LabelEncoder()
 y = labelencoder_y.fit_transform(y)
+
+#---------------------------------------------------
+#splitting the x and y variables into train and test partitions
+from  sklearn.model_selection import train_test_split
+x_train,x_test,y_train,y_test = train_test_split(x,y, test_size=0.2, train_size=0.8, random_state=0) 
