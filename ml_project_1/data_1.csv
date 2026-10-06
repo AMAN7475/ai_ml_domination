@@ -1,0 +1,11 @@
+State,Age,Salary,Purchased
+Mumbai,44.0,72000.0,No
+Bangalore,27.0,48000.0,Yes
+Hyderabad,30.0,54000.0,No
+Bangalore,38.0,61000.0,No
+Hyderabad,40.0,,Yes
+Mumbai,35.0,58000.0,Yes
+Bangalore,,52000.0,No
+Mumbai,48.0,79000.0,Yes
+Hyderabad,50.0,83000.0,No
+Mumbai,37.0,67000.0,Yes
