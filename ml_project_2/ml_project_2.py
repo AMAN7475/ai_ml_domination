@@ -162,6 +162,35 @@ SST = np.sum((y_test - y_mean) ** 2)
 
 SSR = np.sum((y_predict - y_mean) ** 2)
 
+# ------------------------------------------------------------
+# SSE = Error Sum of Squares
+# ------------------------------------------------------------
+# Measures the variation that the model
+# could not explain.
+#
+# Formula:
+# SSE = Σ(y_actual - y_predicted)^2
+
+SSE = np.sum((y_test - y_predict) ** 2)
+
+
+print("\nSum of Squares:")
+print(f"SST (Total Sum of Squares): {SST}")
+print(f"SSR (Regression Sum of Squares): {SSR}")
+print(f"SSE (Error Sum of Squares): {SSE}")
+
+
+# ------------------------------------------------------------
+# Verify the relationship:
+#
+# SST = SSR + SSE
+# ------------------------------------------------------------
+
+print("\nChecking SST = SSR + SSE:")
+print(f"SST:       {SST}")
+print(f"SSR + SSE: {SSR + SSE}")
+
+
 # ============================================================
 # STEP 9: COMPARE ACTUAL VS PREDICTED SALARY
 # ============================================================
