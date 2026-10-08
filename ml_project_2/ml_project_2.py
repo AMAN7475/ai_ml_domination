@@ -12,9 +12,7 @@ import pandas as pd
 
 # Read the CSV file using Pandas.
 # The dataset contains Years of Experience and Salary.
-dataset = pd.read_csv(
-    r"/Users/aman/Documents/ai_ml_domination/ml_project_2/data_2.csv"
-)
+dataset = pd.read_csv(r"/Users/aman/Documents/ai_ml_domination/ml_project_2/data_2.csv")
 
 # ============================================================
 # STEP 3: SEPARATE INDEPENDENT AND DEPENDENT VARIABLES
@@ -114,6 +112,13 @@ print(f"Intercept (c): {regressor.intercept_}")
 #
 # The actual numbers will come from our dataset.
 
+
+bias = regressor.score(x_train, y_train)
+print(bias)
+
+variance = regressor.score(x_test, y_test)
+print(variance)
+
 # ============================================================
 # STEP 8: MAKE PREDICTIONS
 # ============================================================
@@ -125,6 +130,37 @@ print(f"Intercept (c): {regressor.intercept_}")
 # did NOT use during training.
 
 y_predict = regressor.predict(x_test)
+
+
+# ============================================================
+# STEP 8.1: CALCULATE SST, SSR AND SSE
+# ============================================================
+
+# Mean of the actual salary values in the test dataset.
+y_mean = y_test.mean()
+
+# ------------------------------------------------------------
+# SST = Total Sum of Squares
+# ------------------------------------------------------------
+# Measures the total variation in actual salary
+# around the average salary.
+#
+# Formula:
+# SST = Σ(y_actual - y_mean)^2
+
+SST = np.sum((y_test - y_mean) ** 2)
+
+
+# ------------------------------------------------------------
+# SSR = Regression Sum of Squares
+# ------------------------------------------------------------
+# Measures the variation explained by the
+# Linear Regression model.
+#
+# Formula:
+# SSR = Σ(y_predicted - y_mean)^2
+
+SSR = np.sum((y_predict - y_mean) ** 2)
 
 # ============================================================
 # STEP 9: COMPARE ACTUAL VS PREDICTED SALARY
@@ -177,7 +213,6 @@ print(dataset.mean(numeric_only=True))
 
 print("\nAverage Salary:")
 print(dataset['Salary'].mean())
-
 
 # Median = Middle value after sorting the data.
 
