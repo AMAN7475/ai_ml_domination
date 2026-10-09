@@ -183,3 +183,29 @@ plt.title("Salary vs Experience (Test Set)")
 plt.xlabel("Years of Experience")
 plt.ylabel("Salary")
 plt.show()
+
+# ============================================================
+# STEP 15: SAVING MODEL IN .PKL FILE
+# ============================================================
+
+import pickle as pkl
+
+filename = 'linear_regression_model.pkl'
+
+with open (filename, 'wb') as file:
+    pkl.dump(regressor, file)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
